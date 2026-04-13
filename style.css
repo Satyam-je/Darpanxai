@@ -3,176 +3,91 @@ background:#070a13;
 color:#e6e9f0;
 font-family:Inter,system-ui,Arial;
 margin:0;
-padding:0;
 text-align:center;
 }
 
-/* Navigation */
+/* Authentication area */
 
-.nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:25px 60px;
-background:#05070f;
-border-bottom:1px solid #1a1f2b;
+.auth-area{
+margin-top:60px;
 }
 
-.logo{
-font-weight:700;
-letter-spacing:2px;
-font-size:18px;
-color:#fff;
-}
+/* Title */
 
-/* Buttons */
-
-button{
-cursor:pointer;
-font-size:14px;
-}
-
-.primary{
-background:linear-gradient(90deg,#3b82f6,#8b5cf6);
-border:none;
-color:white;
-padding:12px 22px;
-border-radius:8px;
-transition:all 0.2s ease;
-}
-
-.primary:hover{
-opacity:0.9;
-transform:translateY(-1px);
-}
-
-.ghost{
-background:none;
-border:1px solid #2b3040;
-color:#cdd2df;
-padding:12px 22px;
-border-radius:8px;
-transition:all 0.2s ease;
-}
-
-.ghost:hover{
-background:#141826;
-}
-
-/* Hero */
-
-.hero{
-padding:120px 20px 80px 20px;
-max-width:900px;
-margin:auto;
-}
-
-.hero h1{
-font-size:52px;
-line-height:1.2;
-margin-bottom:20px;
+h1{
+font-size:36px;
+margin-bottom:10px;
 }
 
 .subtitle{
 opacity:0.7;
-font-size:18px;
 }
 
-.hero-buttons{
-margin-top:30px;
-display:flex;
-justify-content:center;
-gap:20px;
-}
+/* Camera */
 
-/* Video */
-
-video{
-margin-top:40px;
-border-radius:10px;
+#video{
+width:420px;
+border-radius:12px;
+margin-top:25px;
 box-shadow:0 10px 40px rgba(0,0,0,0.6);
 }
 
 /* Status */
 
 #status{
-font-size:22px;
-margin-top:25px;
-font-weight:500;
+margin-top:20px;
+font-size:20px;
 }
 
 /* Token box */
 
 #tokenBox{
-margin-top:25px;
+margin-top:20px;
 background:#0f1422;
 padding:18px;
 border-radius:8px;
 font-family:monospace;
-color:#9ae6b4;
-max-width:600px;
+max-width:520px;
 margin-left:auto;
 margin-right:auto;
 word-break:break-all;
 }
 
-/* Sections */
+/* Dashboard */
 
-.section{
-padding:80px 20px;
-max-width:700px;
-margin:auto;
+#dashboard{
+display:none;
+margin-top:70px;
+padding:20px;
 }
 
-.section h2{
-font-size:32px;
-margin-bottom:15px;
-}
+/* Cards */
 
-.section p{
-opacity:0.75;
-line-height:1.6;
-}
-
-/* Products */
-
-.products{
+.bank-grid{
 display:flex;
+gap:25px;
 justify-content:center;
-gap:40px;
-padding:80px 20px;
 flex-wrap:wrap;
+margin-top:30px;
 }
 
-.card{
-background:#0f1422;
-padding:30px;
+.bank-card{
+background:#111622;
+padding:25px;
 border-radius:10px;
-width:260px;
-text-align:left;
-border:1px solid #1e2333;
+width:220px;
 }
 
-.card h3{
-margin-top:0;
+.bank-card button{
+margin-top:10px;
+background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+border:none;
+padding:10px 16px;
+color:white;
+border-radius:6px;
+cursor:pointer;
 }
 
-.card ul{
-padding-left:18px;
-opacity:0.8;
-}
-
-/* Demo section */
-
-.demo{
-padding:80px 20px;
-}
-
-/* Footer */
-
-footer{
-padding:60px 20px;
-opacity:0.5;
-font-size:14px;
-border-top:1px solid #1a1f2b;
+.bank-card button:hover{
+opacity:0.9;
 }
