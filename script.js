@@ -1,74 +1,100 @@
 const video = document.getElementById("video")
 const statusBox = document.getElementById("status")
 const tokenBox = document.getElementById("tokenBox")
+const dashboard = document.getElementById("dashboard")
 
 async function startCamera(){
-    const stream = await navigator.mediaDevices.getUserMedia({video:true})
-    video.srcObject = stream
-    statusBox.innerText = "Camera active"
+
+const stream = await navigator.mediaDevices.getUserMedia({video:true})
+
+video.srcObject = stream
+
+statusBox.innerText="Camera active"
+
 }
 
 startCamera()
 
 function generateVector(){
-    const vector=[]
-    for(let i=0;i<128;i++){
-        vector.push(Math.random())
-    }
-    return vector
+
+const vector=[]
+
+for(let i=0;i<128;i++){
+
+vector.push(Math.random())
+
+}
+
+return vector
+
 }
 
 function generateToken(vector){
 
-    const weights=[]
+const weights=[]
 
-    for(let i=0;i<vector.length;i++){
-        weights.push(Math.random())
-    }
+for(let i=0;i<vector.length;i++){
 
-    let E=0
-
-    for(let i=0;i<vector.length;i++){
-        E+=vector[i]*weights[i]
-    }
-
-    const token=btoa(E.toString()+Date.now())
-
-    return token
-}
-
-function activateSession(){
-
-    const vector=generateVector()
-
-    const token=generateToken(vector)
-
-    tokenBox.innerText="Token Assigned:\n"+token
-
-    statusBox.innerText="Session Active"
+weights.push(Math.random())
 
 }
 
-function lockSession(){
+let E=0
 
-    tokenBox.innerText="Token invalid"
+for(let i=0;i<vector.length;i++){
 
-    statusBox.innerText="Session Locked"
+E+=vector[i]*weights[i]
+
+}
+
+return btoa(E.toString()+Date.now())
+
+}
+
+function unlockSystem(){
+
+const vector=generateVector()
+
+const token=generateToken(vector)
+
+tokenBox.innerText="Token Assigned:\n"+token.slice(0,40)+"..."
+
+statusBox.innerText="Session Active"
+
+dashboard.style.display="block"
+
+video.style.width="160px"
+video.style.position="fixed"
+video.style.bottom="20px"
+video.style.right="20px"
+
+}
+
+function lockSystem(){
+
+tokenBox.innerText="Token invalid"
+
+statusBox.innerText="Session Locked"
+
+dashboard.style.display="none"
+
+video.style.width="420px"
+video.style.position="static"
 
 }
 
 setInterval(()=>{
 
-    const randomPresence=Math.random()
+const presence=Math.random()
 
-    if(randomPresence>0.4){
+if(presence>0.4){
 
-        activateSession()
+unlockSystem()
 
-    }else{
+}else{
 
-        lockSession()
+lockSystem()
 
-    }
+}
 
-},3000)
+},4000)
